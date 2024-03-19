@@ -1,10 +1,10 @@
-import "./App.scss";
 import { useContext, useEffect } from "react";
+import "./App.scss";
 import { ThemeContext } from "./context/ThemeContext";
 import { DARK_THEME, LIGHT_THEME } from "./constants/themeConstants";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MoonIcon from "./assets/icons/moon.svg";
-import SunIcon from "./assets/icons/sun.svg"; 
+import SunIcon from "./assets/icons/sun.svg";
 import BaseLayout from "./layout/BaseLayout";
 import ClBaseLayout from "./layout/ClBaseLayout";
 import { Dashboard } from "./screens";
@@ -28,6 +28,7 @@ import AdvClView from "./ClientScreens/AdvisersClientView/AdvClView";
 import AdvClProfile from "./ClientScreens/AdvisersClientView/AdvClProfile";
 import PlanView from "./ClientScreens/Plans/PlanView";
 import MultiStepForm from "./ClientScreens/FirstForm/MultiStepForm";
+
 
 function App() {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -59,6 +60,7 @@ function App() {
 
           <Route element={<ClBaseLayout />}>
             <Route path="/cldash" element={<DashboardClient />} />
+            <Route path="/cllp" element={<LandingPage />} />
             <Route path="/advisor_id/:advisor_id" element={<AdvClProfile />} />
             <Route path="/plan_id/:plan_id" element={<PlanView />} />
             <Route path="/profile" element={<ProfilePage />} />
