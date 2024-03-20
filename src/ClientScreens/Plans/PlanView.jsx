@@ -98,7 +98,7 @@ function PlanView() {
               <br/>
               <button
                 style={{
-                  backgroundColor: "green",
+                  backgroundColor: "#475BE8",
                   color: "white",
                   padding: "10px 20px",
                   borderRadius: "20px",

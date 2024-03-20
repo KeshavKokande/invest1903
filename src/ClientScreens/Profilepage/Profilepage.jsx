@@ -3,6 +3,9 @@ import axios from 'axios';
 import GeneralInfoEditForm from './GeneralInfoEditForm';
 import OtherInfoEditForm from './OtherInfoEditForm';
 import './style.css';
+import './pp.css';
+import data from  "./clientans.json";
+import { Link } from 'react-router-dom/dist';
 
 const ProfilePage = () => {
   const [isEditingGeneral, setIsEditingGeneral] = useState(false);
@@ -98,59 +101,108 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="profile-outer">
-      <div className='one'>
-        <div className="card oneone">
-        <img
-  src={profileInfo.img}
-  alt="Placeholder Image"
-  onError={(e) => {
-    e.target.onerror = null;
-    e.target.src = 'https://avatar.iran.liara.run/public/boy'; // Replace this URL with your actual placeholder image URL
-  }}
-  className="profile-image"
-/>
-          <h4>{plansData.name}</h4>
-          <div className="card-body">
-            <h4>{profileInfo.location}</h4>
-          </div>
+
+    <div className='ppfull'>
+    
+
+      <div className='pp'>
+
+        <div className='pp1'>
+
+              <img
+                  src={profileInfo.img}
+                  alt="Placeholder Image"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://avatar.iran.liara.run/public/boy'; 
+                  }}
+                  className="profile-image"
+                />
+
+
         </div>
 
-        <div className="card twoone">
-          <div className="card-header">
-            General Information
-            <span onClick={handleGeneralEdit} className="edit-icon">✎</span>
+        <div className='pp2'>
+
+          <div className='pp21'>
+
+            <div className='pp211'>
+
+            <div>
+
+            <p className='ppp'><strong>Name:</strong> &nbsp; {plansData.name}</p>
+            <p className='ppp'><strong>Email:</strong> &nbsp; {plansData.email}</p>
+            <p className='ppp'><strong>Age:</strong> &nbsp; {profileInfo.job}</p>
+            <p className='ppp'><strong>Job Title:</strong> &nbsp; {profileInfo.job}</p>
+
+            </div>
+
+            <div>
+
+            <p className='ppp'><strong>Phone:</strong> &nbsp; {profileInfo.phone}</p>
+            <p className='ppp'><strong>Address:</strong> &nbsp; {profileInfo.address}</p>
+            <p className='ppp'><strong>Qualification:</strong> &nbsp; {profileInfo.job}</p>
+            <p className='ppp'><strong>Gender:</strong> &nbsp; {profileInfo.job}</p>
+              
+
+            </div>
+
+
+
+          
           </div>
-          <div className="card-body">
-            <p><strong>Email:</strong> {plansData.email}</p>
-            <p><strong>Phone:</strong> {profileInfo.phone}</p>
-            <p><strong>Address:</strong> {profileInfo.address}</p>
-            <p><strong>Job Title:</strong> {profileInfo.job}</p>
-          </div>
-        </div>
-      </div>
-      <div className='two'>
-        
-        <div className="card twoone">
-          <div className="card-header">
-            Other Information
-            <span onClick={handleOtherEdit} className="edit-icon">✎</span>
-          </div>
-          <div className="card-body">
-            {profileInfo.values.map((attribute, index) => (
-              <div key={index}>
-                <h4>{attribute.name}</h4>
-                <progress value={attribute.value} max={100} />
-                <hr />
+
+          <hr/>
+
+          <div className='pp212'>
+
+          <div>
+
+            <div>
+              {data.otherinfo.map((item, index) => (
+                <div key={index}>
+                  <p><strong>{item.field}:</strong> &nbsp;{item.ans}</p>
+                </div>
+              ))}
+            </div>
+
+
+              
+                
+
               </div>
-            ))}
+          
           </div>
+
+          <div className='pp213'>
+          <Link to={"/clform"}>
+          <button
+                style={{
+                  backgroundColor: "#475BE8",
+                  color: "white",
+                  padding: "1rem 1rem",
+                  borderRadius: "0.3rem",
+                  border: "none",
+                  boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                  cursor: "pointer"
+                }}
+              >
+                ✎Edit 
+              </button></Link>
+          </div>
+
+          </div>
+
         </div>
+        
       </div>
-      {isEditingGeneral && <GeneralInfoEditForm initialValues={profileInfo} onSave={handleGeneralSave} onCancel={() => setIsEditingGeneral(false)} />}
-      {isEditingOther && <OtherInfoEditForm initialValues={profileInfo.values} onSave={handleOtherSave} onCancel={() => setIsEditingOther(false)} />}
+
+
     </div>
+
   );
+
+
 
   // return (
   //   <div><h1>this is profile page</h1></div>

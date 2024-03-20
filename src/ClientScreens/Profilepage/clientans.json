@@ -1,0 +1,28 @@
+{
+    "otherinfo": [
+      {
+        "field": "primary investment objectives",
+        "ans": "Wealth accumulation"
+      },
+      {
+        "field": "risk tolerance",
+        "ans": "Moderate"
+      },
+      {
+        "field": "investment experience",
+        "ans": "Intermediate"
+      },
+      {
+        "field": "time horizon",
+        "ans": "Long-term"
+      },
+      {
+        "field": "income level",
+        "ans": "High"
+      },
+      {
+        "field": "asset allocation strategy",
+        "ans": "Diversified portfolio"
+      }
+    ]
+  }
